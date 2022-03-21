@@ -11,11 +11,20 @@ class App extends Component {
     bad: 0,
   };
 
+  // onLeaveFeedback = e => {
+  //   this.setState(prevState => ({
+  //     [e.target.name]: prevState[e.target.name] + 1,
+  //   }));
+  // };
   onLeaveFeedback = e => {
-    this.setState(prevState => ({
-      [e.target.name]: prevState[e.target.name] + 1,
-    }));
+    this.setState(prevState => {
+      const buttonId = e.target.id;
+      return {
+        [buttonId]: prevState[buttonId] + 1,
+      };
+    });
   };
+
   countTotalFeedback(good, neutral, bad) {
     const total = good + neutral + bad;
     return total;
